@@ -1,9 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using surgicalmanagement_back_end.Domain.Entities;
 using surgicalmanagement_back_end.Domain.Repositories;
-using surgicalmanagement_back_end.MergedInfraApp.Persistence;
 
-namespace surgicalmanagement_back_end.MergedInfraApp.Repositories;
+namespace surgicalmanagement_back_end.MergedInfraApp.Persistence.Repositories;
 
 public class OperationRequestRepository : IOperationRequestRepository
 {

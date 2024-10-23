@@ -1,4 +1,4 @@
-namespace surgicalmanagement_back_end.Domain.Repositories;
+namespace surgicalmanagement_back_end.Domain.Shared;
 
 public interface IRepository<TEntity, TEntityId>
 {

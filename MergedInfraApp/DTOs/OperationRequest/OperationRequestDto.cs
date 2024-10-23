@@ -8,7 +8,7 @@ public class OperationRequestDto
     public Guid PatientId { get; set; }
     public Guid DoctorId { get; set; }
     public Guid OperationTypeId { get; set; }
-    public DateTime RequestedDate { get; set; }
+    public DateTime DeadlineDate { get; set; }
     public OperationRequestPriority Priority { get; set; }
     public OperationRequestStatus Status { get; set; }
     public DateTime CreatedDate { get; set; }

@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace surgicalmanagement_back_end.Domain.ValueObjects;
 
 public enum OperationRequestPriority

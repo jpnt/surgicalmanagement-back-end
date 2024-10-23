@@ -3,6 +3,6 @@ using surgicalmanagement_back_end.Domain.Shared;
 
 namespace surgicalmanagement_back_end.Domain.Repositories;
 
-public interface IOperationRequestRepository : IRepository<OperationRequest, Guid>
+public interface IStaffRepository : IRepository<Staff, Guid>
 {
 }

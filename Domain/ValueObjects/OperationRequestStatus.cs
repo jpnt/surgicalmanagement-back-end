@@ -1,11 +1,24 @@
+using System.ComponentModel;
+
 namespace surgicalmanagement_back_end.Domain.ValueObjects;
 
 public enum OperationRequestStatus
 {
-    Pending = 0,
-    Approved = 1,
-    Rejected = 2,
-    Scheduled = 3,
-    Completed = 4,
-    Canceled = 5
+    [Description("Pending")]
+    Pending,
+    
+    [Description("Approved")]
+    Approved,
+    
+    [Description("Rejected")]
+    Rejected,
+    
+    [Description("Scheduled")]
+    Scheduled,
+    
+    [Description("Completed")]
+    Completed,
+    
+    [Description("Cancelled")]
+    Canceled
 }

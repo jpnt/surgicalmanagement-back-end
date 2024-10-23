@@ -22,6 +22,29 @@ namespace surgicalmanagement_back_end.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.MedicalHistoryEntry", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EntryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("MedicalHistoryEntry");
+                });
+
             modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.OperationRequest", b =>
                 {
                     b.Property<Guid>("Id")
@@ -29,6 +52,9 @@ namespace surgicalmanagement_back_end.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeadlineDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("DoctorId")
@@ -47,9 +73,6 @@ namespace surgicalmanagement_back_end.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RequestedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -59,23 +82,68 @@ namespace surgicalmanagement_back_end.Migrations
                     b.ToTable("OperationRequests");
                 });
 
+            modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.OperationType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SpecializationRequired")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OperationTypes");
+                });
+
             modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.Patient", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
+                    b.Property<string>("MedicalRecordNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.Staff", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Specialization")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Staffs");
+                });
+
+            modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.MedicalHistoryEntry", b =>
+                {
+                    b.HasOne("surgicalmanagement_back_end.Domain.Entities.Patient", null)
+                        .WithMany("MedicalHistory")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("surgicalmanagement_back_end.Domain.Entities.Patient", b =>
+                {
+                    b.Navigation("MedicalHistory");
                 });
 #pragma warning restore 612, 618
         }
