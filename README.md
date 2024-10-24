@@ -10,20 +10,19 @@
 
 ## TODO
 
-- MedicalHistory Entry
-- Decouple MedicalHistory Entry from Patient Entity (Database best practice) 
-- Notify Planning Module Service
-- Delete operation requests if the operation has not yet been scheduled
+- Delete operation requests only if the operation has not yet been scheduled
 - Search operation requests by patient name, operation type, priority, and status.
 - Only the requesting doctor can update the operation request
-- Logs all updates to the operation request (e.g., changes to priority or deadline).
+- Logs all updates to the operation request (e.g., changes to priority or deadline) => OperationRequestAuditLog
 - As patient: Create/Register user profile to book appointments online
 - As patient: Update Patient profile
-- Tests
+- Unit Tests
+- Integration Tests
 - Documentation
 
 ## Use Cases
 
+### DOCTOR:
 5.1.16 As a Doctor, I want to request an operation, so that the Patient has access to the
 necessary healthcare (#16)
 
@@ -36,6 +35,9 @@ activities are provided as necessary. (#17)
 5.1.19 As a Doctor, I want to list/search operation requisitions, so that I see the details,
 edit, and remove operation requisitions (#18)
 
+---
+
+### PATIENT:
 5.1.3 As a Patient, I want to register for the healthcare application, so that I can create
 a user profile and book appointments online. (#23)
 
