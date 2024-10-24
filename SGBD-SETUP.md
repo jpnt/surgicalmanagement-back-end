@@ -30,4 +30,5 @@ dotnet tool install --global dotnet-ef
 dotnet restore
 
 dotnet ef migrations add <name>
+
 dotnet ef database update
