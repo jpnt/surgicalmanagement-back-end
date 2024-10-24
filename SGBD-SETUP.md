@@ -21,6 +21,7 @@ More info: https://computingpost.medium.com/run-microsoft-sql-server-in-podman-d
 "dotnet_init" (to get dotnet on $PATH)
 
 dotnet add package Microsoft.EntityFrameworkCore.Tools
+
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
 "AppDbContext setup + Program.cs"
