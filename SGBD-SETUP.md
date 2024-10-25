@@ -8,7 +8,12 @@ sudo podman exec -it sql1 "bash"
 
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P "Passw0rd" -C
 
+CREATE DATABASE SurgicalManagementDb
+
+GO
+
 SELECT Name from sys.Databases
+
 GO
 
 
